@@ -10,7 +10,6 @@ export const InteractionsPage = () => {
     const CONFIG = {
         secure: true, 
         host: 'mylerning.herokuapp.com',
-        path: '/interactions',
         port: 443
     }
 

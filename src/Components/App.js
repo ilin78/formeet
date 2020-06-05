@@ -43,7 +43,7 @@ export default class extends Component {
                 <Link to="/materials"> Материалы</Link>
               </li>
               <li style={{marginBottom: 10}}>
-                <Link to="/interactions"> Взаимодействие</Link>
+                <Link to="/interactions" exact> Взаимодействие</Link>
               </li>
               <li style={{marginBottom: 10}}>
                 <Link to="/notice"> Объявления</Link>
@@ -57,9 +57,9 @@ export default class extends Component {
             </ul>
               </div>
                 <div className="col s6 offset-l100 s10">
-                <Route  exact path="/" render={() => 
+                {/* <Route  exact path="/" render={() => 
                   <div>Home</div>}>
-                </Route>    
+                </Route>     */}
                 <Route path="/profile" exact>
                     <ProfilePage />
                 </Route>
@@ -69,7 +69,7 @@ export default class extends Component {
                 <Route path="/materials" exact>
                     <MaterialsPage />
                 </Route>
-                <Route path="/interactions" exact>
+                <Route path="/" exact>
                     <InteractionsPage />
                 </Route>
                 <Route path="/notice" exact>
