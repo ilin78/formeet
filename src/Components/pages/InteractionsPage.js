@@ -4,15 +4,12 @@ import Peer from 'peerjs';
 import $ from 'jquery';
 import uid from 'uid';
 
-
 export const InteractionsPage = () => {
-// host: 'mylerning.herokuapp.com' || 'localhost',
+
 const CONFIG = {
-    host: 'localhost',
-    port: 9000,
-    path: '/myapp'
-    // secure: true,
-    // key: "peerjs"
+    host: 'jkq.herokuapp.com',
+    port: 443,
+    secure: true,
 }
 
     function getPeer(){

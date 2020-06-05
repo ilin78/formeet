@@ -69,7 +69,7 @@ export default class extends Component {
                 <Route path="/materials" exact>
                     <MaterialsPage />
                 </Route>
-                <Route path="/" exact>
+                <Route path="/interactions" exact>
                     <InteractionsPage />
                 </Route>
                 <Route path="/notice" exact>
