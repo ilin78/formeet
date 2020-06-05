@@ -4,11 +4,11 @@
   "description": "Connect app",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "dev": "node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
     "peer": "npm run peer --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Oleg Ilin <ilinoa90@gmail.com>",
   "license": "ISC",
