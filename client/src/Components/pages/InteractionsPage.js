@@ -8,11 +8,9 @@ import uid from 'uid';
 export const InteractionsPage = () => {
 
     const CONFIG = {
-        host: '192.168.1.80',
-        port: 9000,
-        path: '/myapp'
-        // secure: true,
-        // key: "peerjs"
+        secure: true, 
+        host: 'mylerning.herokuapp.com',
+        port: 443
     }
 
     function getPeer(){
