@@ -3,22 +3,16 @@ import React, {useState,Fragment} from 'react';
 import Peer from 'peerjs';
 import $ from 'jquery';
 import uid from 'uid';
-// import io from 'socket.io-client';
+import io from 'socket.io-client';
 
 export const InteractionsPage = () => {
 
+    const CONFIG_IO = {
+        PORT: process.env.PORT || 5000,
+        path: 'mylerning.herokuapp.com' || 'localhost'
+    }
 
-
-    
-
-    // const CONFIG_IO = {
-    //     PORT: process.env.PORT || 5000,
-    //     path: 'mylerning.herokuapp.com' || 'localhost'
-    // }
-
-
-    // const socket = io(CONFIG_IO)
-
+    const socket = io("http://localhost:3000")
 
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
