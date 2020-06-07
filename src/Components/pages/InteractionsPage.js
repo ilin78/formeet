@@ -8,7 +8,7 @@ import io from 'socket.io-client';
 export const InteractionsPage = () => {
 
 
-    const socket = io('http:localhost:5000')
+    const socket = io(process.env.PORT || 'http:localhost:5000' )
 
     const CONFIG = {
         host: 'jkq.herokuapp.com',
