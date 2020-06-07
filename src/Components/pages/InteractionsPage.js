@@ -3,21 +3,27 @@ import React, {useState,Fragment} from 'react';
 import Peer from 'peerjs';
 import $ from 'jquery';
 import uid from 'uid';
+import io from 'socket.io-client';
 
 export const InteractionsPage = () => {
 
-const CONFIG = {
-    host: 'jkq.herokuapp.com',
-    port: 443,
-    secure: true,
-}
+
+    const socket = io('http:localhost:5000')
+
+    const CONFIG = {
+        host: 'jkq.herokuapp.com',
+        port: 443,
+        secure: true,
+    }
+    
+    const peer = new Peer(getPeer(), CONFIG );
 
     function getPeer(){
         const id = uid(1)
         return id;
     }
 
-    const peer = new Peer(getPeer(), CONFIG );
+    
 
     function btnCall(){
         const frienId = $('#txtFrienId').val();
