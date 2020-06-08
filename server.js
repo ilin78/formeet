@@ -3,7 +3,7 @@ const INDEX = '/index.html';
 const express = require('express');
 const path = require('path');
 const arrPeerId = [];
-const io = require ('socket.io').listen(server);
+
 
 //___________________server______________________________________________
 
@@ -12,6 +12,7 @@ const server = express()
     .get('*', (req, res) => res.sendFile(path.join(__dirname, 'build', 'index.html')))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
+    const io = require ('socket.io').listen(server);
 //__________________io___________________________________________________
 
 
