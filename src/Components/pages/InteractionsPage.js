@@ -7,14 +7,9 @@ import io from 'socket.io-client';
 
 export const InteractionsPage = () => {
 
-    // const CONFIG_IO = {
-    //     path: 'localhost'|| 'mylerning.herokuapp.com',
-    //     PORT:  3000 || process.env.PORT
-    // }
-    // const test_url = 'http://'+CONFIG_IO.path+':'+CONFIG_IO.PORT;
-    // 
     const local = "http://localhost:5000/"
-    const heroku = "https://mylerning.herokuapp.com/"
+    const heroku = "https://mylerning.herokuapp.com"
+    
     const socket = io(heroku);
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
@@ -30,8 +25,6 @@ export const InteractionsPage = () => {
     const peer = new Peer(peerId, CONFIG_PEER );
     
     socket.emit('NEW_PEER_ID', peerId, console.log('NEW_PEER_ID', peerId.id))
-
- 
     
     socket.on('ONLINE_PEER_ARRAY', arrPeerId => {
         arrPeerId.forEach(id => {
@@ -75,7 +68,6 @@ export const InteractionsPage = () => {
             // })
             console.log('ERROR:', err)
         })
-
     } 
 
     function playVideo(stream, idVideo) {
@@ -94,8 +86,6 @@ export const InteractionsPage = () => {
         });
     });
 
-    
-    
     return (
         <div>
             <div className="container" style={{marginBottom: 10}}>     
