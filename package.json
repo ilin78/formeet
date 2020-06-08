@@ -46,7 +46,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
