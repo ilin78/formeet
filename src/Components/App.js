@@ -43,7 +43,7 @@ export default class extends Component {
                 <Link to="/materials"> Материалы</Link>
               </li>
               <li style={{marginBottom: 10}}>
-                <Link to="/interactions" exact> Взаимодействие</Link>
+                <Link to="/interactions" > Взаимодействие</Link>
               </li>
               <li style={{marginBottom: 10}}>
                 <Link to="/notice"> Объявления</Link>
@@ -63,22 +63,22 @@ export default class extends Component {
                 <Route path="/profile" exact>
                     <ProfilePage />
                 </Route>
-                <Route path="/tasks" exact>
+                <Route path="/tasks" >
                     <TasksPage />
                 </Route>
-                <Route path="/materials" exact>
+                <Route path="/materials" >
                     <MaterialsPage />
                 </Route>
-                <Route path="/interactions" exact>
+                <Route path="/interactions" >
                     <InteractionsPage />
                 </Route>
-                <Route path="/notice" exact>
+                <Route path="/notice" >
                     <NoticePage />
                 </Route>
-                <Route path="/disciplines" exact>
+                <Route path="/disciplines" >
                     <DisciplinesPage />
                 </Route>
-                <Route path="/settings" exact>
+                <Route path="/settings" >
                     <SettingsPage />
                 </Route>
               </div>

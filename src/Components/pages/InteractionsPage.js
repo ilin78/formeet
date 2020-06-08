@@ -7,27 +7,40 @@ import io from 'socket.io-client';
 
 export const InteractionsPage = () => {
 
-    const CONFIG_IO = {
-        PORT: process.env.PORT || 5000,
-        path: 'mylerning.herokuapp.com' || 'localhost'
-    }
-
-    const socket = io("http://localhost:3000")
-
+    // const CONFIG_IO = {
+    //     path: 'localhost'|| 'mylerning.herokuapp.com',
+    //     PORT:  3000 || process.env.PORT
+    // }
+    // const test_url = 'http://'+CONFIG_IO.path+':'+CONFIG_IO.PORT;
+    // 
+    const socket = io("http://localhost:5000/");
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
         port: 443,
         secure: true,
     }
-    
-    const peer = new Peer(getPeer(), CONFIG_PEER );
-
+    const peerId =  getPeer();
     function getPeer(){
-        const id = uid(1)
+        const id = uid(5)
         return id;
     }
-
     
+    const peer = new Peer(peerId, CONFIG_PEER );
+    
+    socket.emit('NEW_PEER_ID', peerId, console.log('NEW_PEER_ID', peerId.id))
+
+ 
+
+    socket.on('ONLINE_PEER_ARRAY', arrPeerId => {
+        arrPeerId.forEach(id => {
+            $('#ulPeer').append(`<li>${id}</li>`) 
+        })
+    });
+
+
+    socket.on('NEW_CLIENT_CONNECT', id => {
+        $('#ulPeer').append(`<li>${id}</li>`) 
+    })
 
     function btnCall(){
         const frienId = $('#txtFrienId').val();
@@ -46,7 +59,17 @@ export const InteractionsPage = () => {
         .then(stream => { 
             cb(stream) 
         })
-        .catch(err => console.log('ERR',err));
+        .catch(err => {
+            // Дописать обработку, если нет камеры и микрафона, то пользователь должен 
+            // увидеть что ему отправляют
+            // const constraints = { audio: false, video: false };
+            // navigator.mediaDevices.getUserMedia( constraints )
+            // .then(stream => { 
+            //     cb(stream) 
+            // })
+            console.log('ERROR:', err)
+        })
+
     } 
 
     function playVideo(stream, idVideo) {
@@ -64,8 +87,6 @@ export const InteractionsPage = () => {
             call.on('stream', remoteStream => playVideo(remoteStream, 'friendStream'))
         });
     });
-
-
     
     return (
         <div>
