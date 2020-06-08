@@ -23,7 +23,7 @@
     "node": "12.17.x"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
