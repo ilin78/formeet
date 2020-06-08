@@ -30,16 +30,20 @@ export const InteractionsPage = () => {
     socket.emit('NEW_PEER_ID', peerId, console.log('NEW_PEER_ID', peerId.id))
 
  
-
+    
     socket.on('ONLINE_PEER_ARRAY', arrPeerId => {
         arrPeerId.forEach(id => {
-            $('#ulPeer').append(`<li>${id}</li>`) 
+            $('#ulPeer').append(`<li id="${id}">${id}</li>`) 
         })
+    });    
+    
+    socket.on('SOMEONE_DISCONNECTED', peerId => {
+        $(`#${peerId}`).remove();
     });
 
 
     socket.on('NEW_CLIENT_CONNECT', id => {
-        $('#ulPeer').append(`<li>${id}</li>`) 
+        $('#ulPeer').append(`<li id="${id}">${id}</li>`) 
     })
 
     function btnCall(){
@@ -87,6 +91,8 @@ export const InteractionsPage = () => {
             call.on('stream', remoteStream => playVideo(remoteStream, 'friendStream'))
         });
     });
+
+    
     
     return (
         <div>
