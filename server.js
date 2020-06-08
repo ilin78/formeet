@@ -3,6 +3,8 @@ const INDEX = '/index.html';
 const express = require('express');
 const path = require('path');
 const arrPeerId = [];
+const io = require ('socket.io').listen(server);
+
 //___________________server______________________________________________
 
 const server = express()
@@ -12,7 +14,7 @@ const server = express()
 
 //__________________io___________________________________________________
 
-const io = require ('socket.io').listen(server);
+
 
 io.on('connection', socket => {
   socket.emit('ONLINE_PEER_ARRAY', arrPeerId)
