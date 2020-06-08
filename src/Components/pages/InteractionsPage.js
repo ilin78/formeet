@@ -13,7 +13,9 @@ export const InteractionsPage = () => {
     // }
     // const test_url = 'http://'+CONFIG_IO.path+':'+CONFIG_IO.PORT;
     // 
-    const socket = io("http://localhost:5000/");
+    const local = "http://localhost:5000/"
+    const heroku = "https://mylerning.herokuapp.com/"
+    const socket = io(heroku && local);
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
         port: 443,
