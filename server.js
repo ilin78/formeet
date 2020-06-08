@@ -12,12 +12,11 @@ const server = express()
     .get('*', (req, res) => res.sendFile(path.join(__dirname, 'build', 'index.html')))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-    const io = require ('socket.io').listen(server);
+    
 //__________________io___________________________________________________
 
-
-
-io.on('connection', socket => {
+const io = require ('socket.io').listen(server)
+.on('connection', socket => {
   socket.emit('ONLINE_PEER_ARRAY', arrPeerId)
 
   socket.on('NEW_PEER_ID', peerId => {
