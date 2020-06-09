@@ -34,5 +34,6 @@ const io = require ('socket.io').listen(server)
 
 });
 //_________________end__________________________________________________
+server.close();
 
 
