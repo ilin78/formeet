@@ -17,7 +17,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "simple-peer": "^9.7.2",
-    "uid": "^1.0.0"
+    "uid": "^1.0.0",
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
   },
   "engines": {
     "node": "12.17.x"
@@ -49,14 +51,12 @@
   "devDependencies": {
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
-    "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "jquery": "^3.5.1",
     "json-server": "^0.16.1",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "peer": "^0.5.3",
-    "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0"
   }
 }

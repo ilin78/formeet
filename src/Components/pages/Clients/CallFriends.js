@@ -84,7 +84,7 @@ export const CallFriends = () => {
                 <ul id="ulUser"></ul>
                 
                 <h5> My peer id:  {peer.id}</h5> 
-                <video id="localStream" width="300" controls></video>
+                <video className='video-container' id="localStream" width="300" controls></video>
                 <br></br>
                 <video id="friendStream" width="300" controls></video>
                 <br></br>
