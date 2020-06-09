@@ -1,21 +1,15 @@
-import React, {useState,Fragment} from 'react';
-// import MediaHandler from '../MediaHandler'
+import React, {Fragment} from 'react';
+import {ListClient} from './Clients/ListClient'
 import Peer from 'peerjs';
 import $ from 'jquery';
 import uid from 'uid';
 import io from 'socket.io-client';
 
 export const InteractionsPage = () => {
-
-    // const CONFIG_IO = {
-    //     path: 'localhost'|| 'mylerning.herokuapp.com',
-    //     PORT:  3000 || process.env.PORT
-    // }
-    // const test_url = 'http://'+CONFIG_IO.path+':'+CONFIG_IO.PORT;
-    // 
+    console.log("InteractionsPageInteractionsPageInteractionsPageInteractionsPageInteractionsPage")
     const local = "http://localhost:5000/"
-    const heroku = "https://mylerning.herokuapp.com/"
-    const socket = io(heroku);
+    const heroku = "mylerning.herokuapp.com"
+    const socket = io(local);
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
         port: 443,
@@ -28,25 +22,18 @@ export const InteractionsPage = () => {
     }
     
     const peer = new Peer(peerId, CONFIG_PEER );
-    
-    socket.emit('NEW_PEER_ID', peerId, console.log('NEW_PEER_ID', peerId.id))
 
- 
+    socket.emit('NEW_PEER_ID', peerId, console.log('NEW_PEER_ID', peerId.id))
     
     socket.on('ONLINE_PEER_ARRAY', arrPeerId => {
         arrPeerId.forEach(id => {
-            $('#ulPeer').append(`<li id="${id}">${id}</li>`) 
+            $('#ulPeer').append(`<li id="${id}">${id} </li>`) 
         })
     });    
     
     socket.on('SOMEONE_DISCONNECTED', peerId => {
         $(`#${peerId}`).remove();
     });
-
-
-    socket.on('NEW_CLIENT_CONNECT', id => {
-        $('#ulPeer').append(`<li id="${id}">${id}</li>`) 
-    })
 
     function btnCall(){
         const frienId = $('#txtFrienId').val();
@@ -68,11 +55,6 @@ export const InteractionsPage = () => {
         .catch(err => {
             // Дописать обработку, если нет камеры и микрафона, то пользователь должен 
             // увидеть что ему отправляют
-            // const constraints = { audio: false, video: false };
-            // navigator.mediaDevices.getUserMedia( constraints )
-            // .then(stream => { 
-            //     cb(stream) 
-            // })
             console.log('ERROR:', err)
         })
 
@@ -94,11 +76,19 @@ export const InteractionsPage = () => {
         });
     });
 
+
+
+   
     
     
     return (
         <div>
             <div className="container" style={{marginBottom: 10}}>     
+                <p> Online user </p>
+                <ul id="ulUser">
+
+                </ul>
+                
                 <h5> My peer id:  {peer.id}</h5> 
                 <video id="localStream" width="300" controls></video>
                 <br></br>
@@ -106,9 +96,11 @@ export const InteractionsPage = () => {
                 <br></br>
                 <input type="text" placeholder="Your friend's peer id" id="txtFrienId"></input>
                 <br></br>
-                
+                 
                 <input type="submit" onClick={()=>btnCall()} value="Вызов" />
                 <ul id="ulPeer"></ul>
+
+                {/* < ListClient /> */}
             </div>
         </div>
     )
