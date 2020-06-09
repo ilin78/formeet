@@ -2,7 +2,8 @@ import React from 'react'
 import io from 'socket.io-client';
 
 export const ListClient = () => {
-
+    const local = "http://localhost:5000/"
+    const socket = io(local);
     const [numbers, setNumbers] = React.useState([false])
     console.log("TEST")
     socket.on('NEW_CLIENT_CONNECT', id => {
