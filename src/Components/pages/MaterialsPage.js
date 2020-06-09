@@ -3,9 +3,10 @@ import React from 'react'
 export const MaterialsPage = () => {
     return (
         <div className="container">
-            <h4>
+             <h6>
                 Страница МАТЕРИАЛЫ находится в разработке
-            </h4>
+            </h6>
+
         </div>
     )
 }

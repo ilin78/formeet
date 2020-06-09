@@ -57,9 +57,6 @@ export default class extends Component {
             </ul>
               </div>
                 <div className="col s6 offset-l100 s10">
-                {/* <Route  exact path="/" render={() => 
-                  <div>Home</div>}>
-                </Route>     */}
                 <Route path="/profile" exact>
                     <ProfilePage />
                 </Route>

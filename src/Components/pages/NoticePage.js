@@ -3,9 +3,9 @@ import React from 'react'
 export const NoticePage = () => {
     return (
         <div className="container">
-            <h4>
+             <h6>
                 Страница ОБЪЯВЛЕНИЯ находится в разработке
-            </h4>
+            </h6>
         </div>
     )
 }
