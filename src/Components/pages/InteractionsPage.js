@@ -8,7 +8,7 @@ import io from 'socket.io-client';
 export const InteractionsPage = () => {
 
     const local = "http://localhost:5000/"
-    const heroku = "young-tor-12837.herokuapp.com/"
+    const heroku = "mylerning.herokuapp.com/"
     
     const socket = io(heroku);
     const CONFIG_PEER = {
