@@ -3,6 +3,7 @@ import Peer from 'peerjs';
 import $ from 'jquery';
 import uid from 'uid';
 import io from 'socket.io-client';
+import {styles} from "./style.css";
 
 export const CallFriends = () => {
 
@@ -78,15 +79,16 @@ export const CallFriends = () => {
         });
     
     return (
-        <div>
+        <div className="inter">
             <div className="container" style={{marginBottom: 10}}>     
                 <p> Online user </p>
                 <ul id="ulUser"></ul>
                 
-                <h5> My peer id:  {peer.id}</h5> 
-                <video className='video-container' id="localStream" width="300" controls></video>
-                <br></br>
-                <video id="friendStream" width="300" controls></video>
+                <h5 > My peer id:  {peer.id}</h5> 
+                <div className='video-container' >
+                    <video  id="localStream" className="my-video" ></video>
+                    <video  id="friendStream" className="user-video" ></video>
+                </div>
                 <br></br>
                 <input type="text" placeholder="Your friend's peer id" id="txtFrienId"></input>
                 <br></br>

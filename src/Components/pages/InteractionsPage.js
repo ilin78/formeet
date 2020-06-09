@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {BrowserRouter, Link, Route} from 'react-router-dom'
 import {CallFriends} from './Clients/CallFriends'
 import {ChatFriends} from './Clients/ChatFriends'
-
+import {styles} from "./style.css";
 
 export const InteractionsPage = () => {    
 
@@ -14,10 +14,10 @@ export const InteractionsPage = () => {
                         <div className="col l2">  
                             <ul> 
                                 <li>
-                                    <Link  to="/interactions/call"  style={{color: 'green'}}> Позвонить</Link>
+                                    <Link  to="/interactions/call"   className="inter"> Позвонить</Link>
                                 </li>
                                 <li>
-                                    <Link  to="/interactions/chat"  style={{color: 'green'}}> Написать</Link>
+                                    <Link  to="/interactions/chat"  className="inter"> Написать</Link>
                                 </li>
                             </ul>
                         </div>
