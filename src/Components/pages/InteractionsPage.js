@@ -9,15 +9,15 @@ export const InteractionsPage = () => {
     return (
         <Fragment>
             <footer className="footer">
-                <div className="container">
+                <div className="block-container">
                     <div className="row">
                         <div className="col l2">  
                             <ul> 
                                 <li>
-                                    <Link  to="/interactions/call"   className="inter"> Позвонить</Link>
+                                    <Link  to="/interactions/call"   className="inter-block "> Позвонить</Link>
                                 </li>
                                 <li>
-                                    <Link  to="/interactions/chat"  className="inter"> Написать</Link>
+                                    <Link  to="/interactions/chat"  className="inter-block "> Написать</Link>
                                 </li>
                             </ul>
                         </div>

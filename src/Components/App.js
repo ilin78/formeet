@@ -18,10 +18,6 @@ export default class extends Component {
       <BrowserRouter>
         <nav>
           <div className="nav-wrapper light-blue darken-3">
-            <ul>  <li>
-                <Link to="/"> На главную</Link>
-            </li>
-            </ul>
             <ul id="nav" className="right" >
               <li><a href="">Выход</a></li>
             </ul>
@@ -29,7 +25,7 @@ export default class extends Component {
         </nav>
         <Fragment>
             <footer className="footer">
-          <div className="container">
+          <div className="containers">
             <div className="row">
               <div className="col l2">  
               <ul> 

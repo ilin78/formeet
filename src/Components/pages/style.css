@@ -1,3 +1,28 @@
 .inter {
     color: rgb(91, 170, 125);
 }
+.containers {
+    width:  auto ;
+    height: 650px auto;
+    margin-bottom: auto;
+    border: 1px solid #cacaca;
+    position: relative;
+    box-shadow: 1px 1px 11px#cacaca;
+    
+}
+
+.block-container {
+    width: 900px auto;
+    height: 680px;
+    margin-right: auto;
+    margin: 20px auto;
+    border: 1px solid #cacaca5b;
+    position: relative;
+}
+
+h6 {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-size: 19px;
+    text-align: center;
+}
