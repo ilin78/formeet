@@ -17,3 +17,12 @@ body {
     font-size: 19px;
     text-align: center;
 }
+
+.block-container {
+  width: 900px auto;
+  height: 680px;
+  margin-right: auto;
+  margin: 20px auto;
+  border: 1px solid #cacaca5b;
+  position: relative;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const NoticePage = () => {
     return (
@@ -8,7 +9,7 @@ export const NoticePage = () => {
                 <br/><br/>
                 Мы уже работаем над этим!
                 <br/><br/>
-                Для продолжения выберете, Взаимодействие
+                Для продолжения выберете<Link to="/interactions" > Взаимодействие</Link>
             </h6>
         </div>
     )

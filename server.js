@@ -32,6 +32,4 @@ io.on('connection', socket => {
 
 });
 
-server.close();
-
 
