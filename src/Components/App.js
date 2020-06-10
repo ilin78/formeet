@@ -40,7 +40,7 @@ export default class extends Component {
                 <Link to="/materials"> Материалы</Link>
               </li>
               <li style={{marginBottom: 10}}>
-                <Link to="/interactions" > Взаимодействие</Link>
+                <Link to="/interactions" > Общение </Link>
               </li>
               <li style={{marginBottom: 10}}>
                 <Link to="/notice"> Объявления</Link>

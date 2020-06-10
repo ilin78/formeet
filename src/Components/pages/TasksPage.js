@@ -9,7 +9,7 @@ export const TasksPage = () => {
                 <br/><br/>
                 Мы уже работаем над этим!
                 <br/><br/>
-                Для продолжения выберете<Link to="/interactions" > Взаимодействие</Link>
+                Для продолжения выберете<Link to="/interactions" > Общение </Link>
             </h6>
         </div>
     )
