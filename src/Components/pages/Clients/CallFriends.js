@@ -92,7 +92,7 @@ export const CallFriends = () => {
                     <video  id="friendStream" className="user-video" ></video>
                 </div>
                 <br></br>
-                <input type="text" placeholder="Your friend's peer id" id="txtFrienId"></input>
+                <input type="text" placeholder="Чтобы позвонить преподавателю, вставьте его ID" id="txtFrienId"></input>
                 <br></br>
                     
                 <input type="submit" onClick={()=>btnCall()} value="Вызов" />
