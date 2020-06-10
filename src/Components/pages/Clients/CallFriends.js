@@ -35,6 +35,10 @@ export const CallFriends = () => {
         $(`#${peerId}`).remove();
     });
 
+    socket.on('NEW_CLIENT_CONNECT', id => {
+           $('#ulPeer').append(`<li id="${id}">${id} </li>`) 
+        })
+
     const peer = new Peer(peerId, CONFIG_PEER );
 
         function btnCall(){
@@ -43,7 +47,6 @@ export const CallFriends = () => {
             openStream(stream=>{
                 playVideo(stream, 'localStream');
                 const call = peer.call(frienId, stream);
-                console.log('TEST CALL', call)
                 call.on('stream', remoteStream => playVideo(remoteStream, 'friendStream'))
             })
         }
@@ -55,8 +58,6 @@ export const CallFriends = () => {
                 cb(stream) 
             })
             .catch(err => {
-                // Дописать обработку, если нет камеры и микрафона, то пользователь должен 
-                // увидеть что ему отправляют
                 console.log('ERROR:', err)
             })
         } 

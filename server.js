@@ -22,7 +22,6 @@ io.on('connection', socket => {
     arrPeerId.push(peerId);
     
     io.emit('NEW_CLIENT_CONNECT', peerId, console.log("NEW_CLIENT_CONNECT:",peerId));
-
   });
 
   socket.on('disconnect', () => {

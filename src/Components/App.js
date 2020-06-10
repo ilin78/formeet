@@ -53,6 +53,13 @@ export default class extends Component {
             </ul>
               </div>
                 <div className="col s6 offset-l100 s10">
+                <Route path="/" exact>
+                    <div>
+                      <h6>Вас приветствует наша команда!</h6>
+                      
+                      <h6>Для продолжения выберете, Взаимодействие</h6>
+                    </div>
+                </Route>
                 <Route path="/profile" exact>
                     <ProfilePage />
                 </Route>
