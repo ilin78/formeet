@@ -8,8 +8,9 @@ import {styles} from "./style.css";
 export const CallFriends = () => {
 
     const local = "http://localhost:5000/"
-    const heroku = "mylerning.herokuapp.com"
-    const socket = io(heroku);
+    const heroku_m = "mylerning.herokuapp.com"
+    const heroku_h = "home-learning.herokuapp.com"
+    const socket = io(heroku_h);
 
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
