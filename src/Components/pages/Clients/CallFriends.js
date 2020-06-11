@@ -9,7 +9,7 @@ export const CallFriends = () => {
 
     const local = "http://localhost:5000/"
     const heroku_h = "home-learning.herokuapp.com"
-    const socket = io(local);
+    const socket = io(heroku_h);
 
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
