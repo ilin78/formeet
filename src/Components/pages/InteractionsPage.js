@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {BrowserRouter, Link, Route} from 'react-router-dom'
 import {CallFriends} from './Clients/CallFriends'
 import {ChatFriends} from './Clients/ChatFriends'
-import {styles} from "./style.css";
+
 
 export const InteractionsPage = () => {    
 

@@ -3,26 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.9.13",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
     "build": "^0.1.4",
     "material-components-web": "^6.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "node": "^14.4.0",
     "peerjs": "^1.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
     "simple-peer": "^9.7.2",
     "uid": "^1.0.0",
     "express": "^4.17.1",
     "socket.io": "^2.3.0"
-  },
-  "engines": {
-    "node": "12.17.x"
   },
   "scripts": {
     "start": "node server.js",
@@ -35,7 +31,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://localhost:5000",
   "browserslist": {
     "production": [
       ">0.2%",

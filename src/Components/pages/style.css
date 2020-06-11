@@ -1,6 +1,7 @@
 .inter {
     color: rgb(91, 170, 125);
 }
+
 .containers {
     width:  auto ;
     height: 650px auto;
@@ -8,10 +9,10 @@
     border: 1px solid #cacaca;
     position: relative;
     box-shadow: 1px 1px 11px#cacaca;
-    
 }
 
 .block-container {
+    position: absolute;
     width: 900px auto;
     height: 680px;
     margin-right: auto;
@@ -27,3 +28,4 @@ h6 {
     font-size: 19px;
     text-align: center;
 }
+ 
