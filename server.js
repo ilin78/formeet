@@ -17,6 +17,7 @@ const SOMEONE_DISCONNECTED = 'SOMEONE_DISCONNECTED';
 
 async function start () {
   try {
+    await mongoose.connect(config.get('mongoUri'))
 
   }catch(err){
     console.log('ERR:',err.message);
