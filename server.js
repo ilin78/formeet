@@ -1,7 +1,11 @@
-const PORT = process.env.PORT || 5000;
 const INDEX = '/index.html';
 const express = require('express');
 const path = require('path');
+const config = require('config');
+const mongoose = require('mongoose');
+
+const PORT = config.get('port') || process.env.PORT || 5000
+
 const arrPeerId = [];
 
 const NEW_PEER_ID = 'NEW_PEER_ID';

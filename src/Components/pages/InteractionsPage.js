@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import {Link, Route} from 'react-router-dom'
+import {BrowserRouter, Link, Route} from 'react-router-dom'
 import {CallFriends} from './Clients/CallFriends'
 import {ChatFriends} from './Clients/ChatFriends'
 
