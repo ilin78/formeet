@@ -1,3 +1,4 @@
 {
-    "mongoUri": ""
+    "mongoUri": "mongodb+srv://ilinoa:<password>@cluster0-bd1jx.azure.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    
 }

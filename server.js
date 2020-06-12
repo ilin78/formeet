@@ -25,7 +25,7 @@ async function start () {
   }
 }
 
-start ();
+// start ();
 
 
 const server = express()
