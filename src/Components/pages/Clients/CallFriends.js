@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Peer from 'peerjs';
 import $ from 'jquery';
 import uid from 'uid';
@@ -6,10 +6,15 @@ import io from 'socket.io-client';
 import "./style.css";
 
 export const CallFriends = () => {
+    const NEW_PEER_ID = 'NEW_PEER_ID';
+    const ONLINE_PEER_ARRAY = 'ONLINE_PEER_ARRAY';
+    const NEW_CLIENT_CONNECT = 'NEW_CLIENT_CONNECT';
+    const SOMEONE_DISCONNECTED = 'SOMEONE_DISCONNECTED';
 
-    const local = "http://localhost:5000/"
-    const heroku_h = "home-learning.herokuapp.com"
-    const socket = io(heroku_h);
+    const LOCAL = "http://localhost:5000/";
+    const HEROKU_H = "home-learning.herokuapp.com";
+
+    const socket = io(HEROKU_H);
 
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
@@ -19,23 +24,23 @@ export const CallFriends = () => {
 
     const peerId =  getPeer();
     function getPeer(){
-        const id = uid(5)
+        const id = uid(2)
         return id;
     }
 
-    socket.emit('NEW_PEER_ID', peerId, console.log)
+    socket.emit(NEW_PEER_ID, peerId)
     
-    socket.on('ONLINE_PEER_ARRAY', arrPeerId => {
+    socket.on(ONLINE_PEER_ARRAY, arrPeerId => {
         arrPeerId.forEach(id => {
             $('#ulPeer').append(`<li id="${id}">${id} </li>`) 
         })
     });    
     
-    socket.on('NEW_CLIENT_CONNECT', id => {
+    socket.on(NEW_CLIENT_CONNECT, id => {
            $('#ulPeer').append(`<li id="${id}">${id} </li>`) 
         })
 
-    socket.on('SOMEONE_DISCONNECTED', peerId => {
+    socket.on(SOMEONE_DISCONNECTED, peerId => {
         $(`#${peerId}`).remove();
     });
     

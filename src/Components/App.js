@@ -12,20 +12,17 @@ import { NoticePage} from './pages/NoticePage';
 import { TasksPage } from './pages/TasksPage';
 import { HomePage } from './pages/HomePage';
 
-export default class extends Component {
+export default class App extends Component {
+  
 
   render() {
-    console.log("\n\n\n\n\t\tНаш проект еще совсем маленький, однако мы не заставим долго ждать.\n"+
-    "\t\tСледите за нашими обновлениями. Будем рады видеть Вас снова!\n"+
-    "\t\tТак же Вы можете принять участие в нашей команде.\n"+
-    "\t\tВаши пожелания и вопросы можете отправить нам на почту ilinoa90@gmail.com\n\n\n\n\n\n\n\n\n"
-    );
       return (
       <BrowserRouter>
+      
         <nav>
           <div className="nav-wrapper light-blue darken-3">
             <ul id="nav" className="right" >
-              <li><a href="/">Выход</a></li>
+      <li><a href="/">Выход </a></li>
             </ul>
           </div>
         </nav>
@@ -45,7 +42,7 @@ export default class extends Component {
                     <Link to="/materials"> Материалы</Link>
                   </li>
                   <li style={{marginBottom: 10}}>
-                    <Link to="/interactions" > Общение </Link>
+                    <Link to="/interactions" > Общение</Link>
                   </li>
                   <li style={{marginBottom: 10}}>
                     <Link to="/notice"> Объявления</Link>
@@ -57,7 +54,7 @@ export default class extends Component {
                     <Link to="/settings"> Настройки</Link>
                   </li>
                 </ul>
-              </div>
+              </div> 
               <div className="col s6 offset-l100 s10">
                 <Route  exact path="/" >
                     < HomePage />
