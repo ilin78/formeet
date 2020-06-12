@@ -4,7 +4,7 @@ const path = require('path');
 const config = require('config');
 const mongoose = require('mongoose');
 
-const PORT = config.get('port') || process.env.PORT || 5000
+const PORT = config.get('port') || 5000
 
 const arrPeerId = [];
  
