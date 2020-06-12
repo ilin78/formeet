@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/github/ilinoa/mylearning.png)](https://travis-ci.org/github/ilinoa/mylearning)
+[![Build Status](https://travis-ci.org/ilinoa/mylearning.svg?branch=master)](https://travis-ci.org/ilinoa/mylearning)
