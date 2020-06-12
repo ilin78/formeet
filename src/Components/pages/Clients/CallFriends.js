@@ -1,15 +1,20 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Peer from 'peerjs';
 import $ from 'jquery';
 import uid from 'uid';
 import io from 'socket.io-client';
-import {styles} from "./style.css";
+import "./style.css";
 
 export const CallFriends = () => {
+    const NEW_PEER_ID = 'NEW_PEER_ID';
+    const ONLINE_PEER_ARRAY = 'ONLINE_PEER_ARRAY';
+    const NEW_CLIENT_CONNECT = 'NEW_CLIENT_CONNECT';
+    const SOMEONE_DISCONNECTED = 'SOMEONE_DISCONNECTED';
 
-    const local = "http://localhost:5000/"
-    const heroku_h = "home-learning.herokuapp.com"
-    const socket = io(local);
+    const LOCAL = "http://localhost:5000/";
+    const HEROKU_H = "home-learning.herokuapp.com";
+
+    const socket = io(LOCAL);
 
     const CONFIG_PEER = {
         host: 'jkq.herokuapp.com',
@@ -19,31 +24,32 @@ export const CallFriends = () => {
 
     const peerId =  getPeer();
     function getPeer(){
-        const id = uid(5)
+        const id = uid(2)
         return id;
     }
 
-    socket.emit('NEW_PEER_ID', peerId, console.log('NEW_PEER_ID', peerId.id))
+    socket.emit(NEW_PEER_ID, peerId)
     
-    socket.on('ONLINE_PEER_ARRAY', arrPeerId => {
+    socket.on(ONLINE_PEER_ARRAY, arrPeerId => {
         arrPeerId.forEach(id => {
             $('#ulPeer').append(`<li id="${id}">${id} </li>`) 
         })
     });    
     
-    socket.on('SOMEONE_DISCONNECTED', peerId => {
-        $(`#${peerId}`).remove();
-    });
-
-    socket.on('NEW_CLIENT_CONNECT', id => {
+    socket.on(NEW_CLIENT_CONNECT, id => {
            $('#ulPeer').append(`<li id="${id}">${id} </li>`) 
         })
 
+    socket.on(SOMEONE_DISCONNECTED, peerId => {
+        $(`#${peerId}`).remove();
+    });
+    
     const peer = new Peer(peerId, CONFIG_PEER );
 
         function btnCall(){
-            const frienId = $('#txtFrienId').val();
             
+            const frienId = $('#txtFrienId').val();
+             $('#ulCallFrien').append(`<li>Звонок ${frienId}  </li>`)
             openStream(stream=>{
                 playVideo(stream, 'localStream');
                 const call = peer.call(frienId, stream);
@@ -80,24 +86,32 @@ export const CallFriends = () => {
         });
     
     return (
-        <div className="inter">
-            <div className="container" style={{marginBottom: 10}}>     
-                <p> Online user </p>
-                <ul id="ulUser"></ul>
-                
-                <h5 > My peer id:  {peer.id}</h5> 
-                <div className='video-container' >
-                    <video  id="localStream" className="my-video" ></video>
-                    <video  id="friendStream" className="user-video" ></video>
+            <div className="inter">
+                <div className="row">
+                    <ul> 
+                        <div className="col l9 s14">  
+                            <div className="container" style={{marginBottom: 10}}>     
+                                <h5> Мой id:  {peer.id} </h5> 
+                                <div className='videos'>
+                                    <video  id="localStream" className="my-video"></video>
+                                    <video  id="friendStream" className="user-video"></video>
+                                </div>
+                                <br></br>
+                                <input type="text" placeholder="Чтобы позвонить преподавателю, вставьте его ID" id="txtFrienId"></input>
+                                <br></br>
+                                <input type="submit" onClick={()=>btnCall()} value="Вызов" />
+                            </div>
+                        </div>
+                    </ul>
+                    <ul>
+                        <div className="container" style={{marginBottom: 10}}>    
+                            <ul> 
+                                <h5> Online: </h5>
+                                <li id="ulPeer"></li>
+                            </ul>
+                        </div>
+                    </ul> 
                 </div>
-                <br></br>
-                <input type="text" placeholder="Чтобы позвонить преподавателю, вставьте его ID" id="txtFrienId"></input>
-                <br></br>
-                    
-                <input type="submit" onClick={()=>btnCall()} value="Вызов" />
-                <ul id="ulPeer"></ul>
-                
             </div>
-        </div>
     )
 }
