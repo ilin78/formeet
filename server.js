@@ -9,11 +9,18 @@ const PORT = config.get('port') || 5000
 const arrPeerId = [];
  
 
-
 const NEW_PEER_ID = 'NEW_PEER_ID';
 const ONLINE_PEER_ARRAY = 'ONLINE_PEER_ARRAY';
 const NEW_CLIENT_CONNECT = 'NEW_CLIENT_CONNECT';
 const SOMEONE_DISCONNECTED = 'SOMEONE_DISCONNECTED';
+
+
+async function start () {
+
+}
+
+start ();
+
 
 const server = express()
     .use(express.static(path.join(__dirname, 'build')))
