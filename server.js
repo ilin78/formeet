@@ -16,7 +16,12 @@ const SOMEONE_DISCONNECTED = 'SOMEONE_DISCONNECTED';
 
 
 async function start () {
+  try {
 
+  }catch(err){
+    console.log('ERR:',err.message);
+
+  }
 }
 
 start ();
