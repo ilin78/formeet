@@ -63,7 +63,7 @@ export const CallFriends = () => {
         }
         
         function openStream(cb) {
-            const constraints = { audio: true, video: { width: 1280, height: 720 } };
+            const constraints = { audio: false, video: { width: 1280, height: 720 } };
             navigator.mediaDevices.getUserMedia( constraints )
             .then(stream => { 
                 cb(stream) 
