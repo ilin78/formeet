@@ -52,13 +52,18 @@ export const CallFriends = () => {
              $('#ulCallFrien').append(`<li>Звонок ${frienId}  </li>`)
             openStream(stream=>{
                 playVideo(stream, 'localStream');
-                const call = peer.call(frienId, stream);
+                const call = peer.call(frienId, stream 
+                    ,{
+                        videoCodec: 'H264',
+                        audioReceiveEnabled: true,
+                      }
+                    );
                 call.on('stream', remoteStream => playVideo(remoteStream, 'friendStream'))
             })
         }
         
         function openStream(cb) {
-            const constraints = { audio: false, video: { width: 1280, height: 720 } };
+            const constraints = { audio: true, video: { width: 1280, height: 720 } };
             navigator.mediaDevices.getUserMedia( constraints )
             .then(stream => { 
                 cb(stream) 
